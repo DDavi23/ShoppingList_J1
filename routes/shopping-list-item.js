@@ -2,7 +2,7 @@ var router = require('express').Router();
 var mongoUtil = require( '../mongoUtil' );
 
 
-// CREATE LIST
+// ADD ITEM TO LIST
 
 router.post('/', function (req, res){
 	// mongo set up
@@ -10,26 +10,29 @@ router.post('/', function (req, res){
 	db.createCollection('shoppingLists', function(err, collection) {});
 	var shoppingLists = db.collection('shoppingLists');
 
-	var newList = req.body;
-	shoppingLists.insert(newList, {w:1}, function(err, result) {
-		console.log('you inserted ' + newList.name + " list");
+	var newItem = req.body;
+
+	shoppingLists.update({id:req.body.listId}, {$push:{items:newItem}}, {w:1}, function(err, result) {
+		console.log('You pushed!');
 	});
-	res.send(newList);
+	res.send(newItem);
 
 });
 
-// DELETE LIST
 
-router.delete('/', function (req, res){
+// DELETE ALL ITEMS FROM LIST
+
+router.put('/', function (req, res){
 	// mongo set up
 	var db = mongoUtil.getDb();
 	db.createCollection('shoppingLists', function(err, collection) {});
 	var shoppingLists = db.collection('shoppingLists');
 
-	shoppingLists.remove(function(err, result) {
-		console.log('you deleted the list');
+	shoppingLists.update({id:req.body.listId}, {$unset:{items:[]}}, {w:1}, function(err, result) {
+		console.log('You pushed!');
 	});
 
 });
+
 
 module.exports = router;

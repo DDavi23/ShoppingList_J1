@@ -20,7 +20,7 @@ router.post('/', function (req, res){
 });
 
 
-// DELETE ALL ITEMS FROM LIST
+// UPDATE ITEMS ARRAY
 
 router.put('/', function (req, res){
 	// mongo set up
@@ -28,8 +28,15 @@ router.put('/', function (req, res){
 	db.createCollection('shoppingLists', function(err, collection) {});
 	var shoppingLists = db.collection('shoppingLists');
 
+	/*
+	var list = req.body;
+	shoppingLists.update({id:req.body.listId}, {$set:{items:list.items}}, {w:1}, function(err, result) {
+		console.log('You updated your items property!');
+	});
+	*/
+
 	shoppingLists.update({id:req.body.listId}, {$unset:{items:[]}}, {w:1}, function(err, result) {
-		console.log('You pushed!');
+		console.log('You deleted your items array!');
 	});
 
 });

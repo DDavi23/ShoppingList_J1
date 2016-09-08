@@ -18,6 +18,23 @@ router.post('/', function (req, res){
 
 });
 
+
+// GET LISTS
+
+router.get('/', function (req, res){
+	// mongo set up
+	var db = mongoUtil.getDb();
+	db.createCollection('shoppingLists', function(err, collection) {});
+	var shoppingLists = db.collection('shoppingLists');
+
+	shoppingLists.find().toArray(function(err, lists) {
+    	res.send(lists);
+    	console.log(lists);
+    });
+
+});
+
+
 // DELETE LIST
 
 router.delete('/', function (req, res){

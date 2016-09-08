@@ -37,7 +37,7 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http){
     // or server returns response with an error status.
   	});
 
-	$scope.addItem = function(newItem){
+	$scope.addList = function(newItem){
 
 		alert('hey');
 		
@@ -52,28 +52,5 @@ app.controller('HomeController', ['$scope', '$http', function($scope, $http){
 		*/
 
 	};
-
-
-
-
-
-
-
-
-
-	/*
-	$scope.getChildren = function(lists) {
-  		var items = [];
-  		for (var i = 0; i < items.length; i++) {
-    		if (items[i].listId == lists.id) {
-      			items.push(items[i]);
-    		}
-  		}
-  		return console.log(items);
-	};
-	// console.log(items);
-
-	$scope.getChildren();
-	*/
 
 }]);

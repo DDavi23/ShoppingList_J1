@@ -19,6 +19,24 @@ router.post('/', function (req, res){
 
 });
 
+// GET SINGLE LIST
+
+router.get('/:id', function (req, res){
+	// mongo set up
+	var db = mongoUtil.getDb();
+	db.createCollection('shoppingLists', function(err, collection) {});
+	var shoppingLists = db.collection('shoppingLists');
+
+	console.log('hey');
+	var listId = req.params.id;
+
+	shoppingLists.find({id:listId}).toArray(function(err, list) {
+    	res.send(list);
+    	console.log(list);
+    });
+
+});
+
 
 // UPDATE ITEMS ARRAY
 

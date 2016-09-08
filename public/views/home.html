@@ -1,9 +1,10 @@
 <div>
-	<ul>
-		<li ng-repeat="list in lists">{{list.name}}
+	<a ng-repeat="list in lists" ng-href="#/shopping-list/{{list.id}}">
+		<div>
+			<h5>{{list.name}}</h5>
 			<ul>
 				<li ng-repeat="item in list.items">{{item.name}}</li>
 			</ul>
-		</li>
-	</ul>
+		</div>
+	</a>
 </div>

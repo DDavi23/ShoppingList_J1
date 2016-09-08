@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 
 // API ROUTES //////////////////////////////////////////////////////////
 app.use('/api/shopping-lists', require('./routes/shopping-lists'));
-app.use('/api/shopping-list-item', require('./routes/shopping-list-item'));
+app.use('/api/shopping-list', require('./routes/shopping-list'));
 
 
 // MAIN ROUTE //////////////////////////////////////////////////////////

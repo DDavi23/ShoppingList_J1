@@ -71,16 +71,10 @@ app.controller('ShoppingListController', ['$scope', '$http', '$routeParams', fun
 
 		return text;
 	}
-	Date.prototype.yyyymmdd = function() {
-		var mm = this.getMonth() + 1; // getMonth() is zero-based
-		var dd = this.getDate();
-
-		return [this.getFullYear(), !mm[1] && '0', mm, !dd[1] && '0', dd].join(''); // padding
-	};
 
 	$http({
 		method: 'GET',
-		url: 'http://localhost:5000/api/shopping-list/' + id
+		url: 'http://localhost:5000/api/shopping-lists/' + id
 	}).then(function successCallback(response) {
 		console.log('you got your list');
 		$scope.list = response.data[0];
@@ -93,10 +87,8 @@ app.controller('ShoppingListController', ['$scope', '$http', '$routeParams', fun
 
 	$scope.addItem = function(){
 		var created = new Date();
-		created.yyyymmdd();
-		var itemarry = [];
 		var newID = makeid();
-		itemarry.push({
+		$scope.list.items.push({
 			name : $scope.newItem.name,
 			priority : $scope.newItem.priority,
 			note: $scope.newItem.note,
@@ -105,7 +97,10 @@ app.controller('ShoppingListController', ['$scope', '$http', '$routeParams', fun
 			created: created,
 			id: newID
 		});
-		console.log(itemarry);
+		// console.log($scope.list.items);
+	};
+	$scope.clearItems = function(){
+		$scope.list.items.length = 0;
 	};
 
 }]);

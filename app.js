@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var path = require('path');
 var bodyParser = require('body-parser');
 var mongoUtil = require( './mongoUtil' );
 
@@ -11,6 +12,7 @@ mongoUtil.connectToServer( function( err ) {
 
 
 // MIDDLEWARE //////////////////////////////////////////////////////////
+app.use(express.static('public'));
 app.use(bodyParser.urlencoded({
     extended: true
 }));
@@ -19,12 +21,12 @@ app.use(bodyParser.json());
 
 // API ROUTES //////////////////////////////////////////////////////////
 app.use('/api/shopping-lists', require('./routes/shopping-lists'));
-app.use('/api/shopping-list-item', require('./routes/shopping-list-item'));
+app.use('/api/shopping-list', require('./routes/shopping-list'));
 
 
 // MAIN ROUTE //////////////////////////////////////////////////////////
-app.get('/', function (req, res) {
-  res.send('Hello World!');
+app.get('/',function(req,res){
+  res.sendFile(path.join(__dirname+'/index.html'));
 });
 
 

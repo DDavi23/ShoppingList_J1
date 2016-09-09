@@ -19,6 +19,24 @@ router.post('/', function (req, res){
 
 });
 
+// GET SINGLE LIST
+
+router.get('/:id', function (req, res){
+	// mongo set up
+	var db = mongoUtil.getDb();
+	db.createCollection('shoppingLists', function(err, collection) {});
+	var shoppingLists = db.collection('shoppingLists');
+
+	console.log('hey');
+	var listId = req.params.id;
+
+	shoppingLists.find({id:listId}).toArray(function(err, list) {
+    	res.send(list);
+    	console.log(list);
+    });
+
+});
+
 
 // UPDATE ITEMS ARRAY
 
@@ -40,19 +58,5 @@ router.put('/', function (req, res){
 	});
 
 });
-
-/* 
-
-TODO - Server-Side
-1. Add a router.get to grab all shopping lists
-2. Can probably delete the shopping-list-item route
-
-TODO - Client-Side
-1. Set up angular framework
-2. Create service for API calls (make GET call)
-3. Create controller that assigns GET response to array
-4. Layout home page that lists all shopping lists from array
-
-*/
 
 module.exports = router;

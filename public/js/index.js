@@ -58,32 +58,54 @@ app.controller('ShoppingListController', ['$scope', '$http', '$routeParams', fun
 	var id = $routeParams.id;
 	console.log(id);
 
+	function makeid()
+	{
+		var text = "";
+		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+		for( var i=0; i < 20; i++ ){
+			text += possible.charAt(Math.floor(Math.random() * possible.length));
+		}
+
+		text += Date.now();
+
+		return text;
+	}
+	Date.prototype.yyyymmdd = function() {
+		var mm = this.getMonth() + 1; // getMonth() is zero-based
+		var dd = this.getDate();
+
+		return [this.getFullYear(), !mm[1] && '0', mm, !dd[1] && '0', dd].join(''); // padding
+	};
+
 	$http({
-  		method: 'GET',
-  		url: 'http://localhost:5000/api/shopping-list/' + id
+		method: 'GET',
+		url: 'http://localhost:5000/api/shopping-list/' + id
 	}).then(function successCallback(response) {
 		console.log('you got your list');
 		$scope.list = response.data[0];
 		console.log($scope.list);
-  	}, function errorCallback(response) {
-  		console.log('it did not work');
+	}, function errorCallback(response) {
+		console.log('it did not work');
 		console.log(response.statusText);
-  	});
+	});
 
-	$scope.addList = function(newItem){
 
-		alert('hey');
-		
-		/* challenge answer
-		var item = {};
-		item = {
-			name: $scope.newItem.name,
-			qty: $scope.newItem.qty,
-			priority: $scope.newItem.priority
-		};
-		console.log(item);
-		*/
-
+	$scope.addItem = function(){
+		var created = new Date();
+		created.yyyymmdd();
+		var itemarry = [];
+		var newID = makeid();
+		itemarry.push({
+			name : $scope.newItem.name,
+			priority : $scope.newItem.priority,
+			note: $scope.newItem.note,
+			isChecked: false,
+			listId: $scope.list.id,
+			created: created,
+			id: newID
+		});
+		console.log(itemarry);
 	};
 
 }]);

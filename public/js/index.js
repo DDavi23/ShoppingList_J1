@@ -56,7 +56,6 @@ app.controller('ShoppingListController', ['$scope', '$http', '$routeParams', fun
 	
 	$scope.list = [];
 	var id = $routeParams.id;
-	console.log(id);
 
 	function makeid()
 	{
@@ -76,9 +75,8 @@ app.controller('ShoppingListController', ['$scope', '$http', '$routeParams', fun
 		method: 'GET',
 		url: 'http://localhost:5000/api/shopping-lists/' + id
 	}).then(function successCallback(response) {
-		console.log('you got your list');
+			console.log($scope.list);
 		$scope.list = response.data[0];
-		console.log($scope.list);
 	}, function errorCallback(response) {
 		console.log('it did not work');
 		console.log(response.statusText);
@@ -98,9 +96,29 @@ app.controller('ShoppingListController', ['$scope', '$http', '$routeParams', fun
 			id: newID
 		});
 		// console.log($scope.list.items);
+		$http.put('http://localhost:5000/api/shopping-lists', $scope.list)
+			.success(function (data, status, headers, config) {
+            })
+            .error(function (data, status, header, config) {
+            });
+
+        /*
+		$http({
+			method: 'PUT',
+			url: 'http://localhost:5000/api/shopping-lists',
+			i: $scope.list.items
+		}).then(function successCallback(response) {
+			console.log('it worked');
+		}, function errorCallback(response) {
+			console.log('it did not work');
+			console.log(response.statusText);
+		});
+		*/
 	};
+
 	$scope.clearItems = function(){
 		$scope.list.items.length = 0;
 	};
+
 
 }]);

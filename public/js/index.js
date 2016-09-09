@@ -75,7 +75,6 @@ app.controller('ShoppingListController', ['$scope', '$http', '$routeParams', fun
 		method: 'GET',
 		url: 'http://localhost:5000/api/shopping-lists/' + id
 	}).then(function successCallback(response) {
-			console.log($scope.list);
 		$scope.list = response.data[0];
 	}, function errorCallback(response) {
 		console.log('it did not work');
@@ -101,24 +100,17 @@ app.controller('ShoppingListController', ['$scope', '$http', '$routeParams', fun
             })
             .error(function (data, status, header, config) {
             });
-
-        /*
-		$http({
-			method: 'PUT',
-			url: 'http://localhost:5000/api/shopping-lists',
-			i: $scope.list.items
-		}).then(function successCallback(response) {
-			console.log('it worked');
-		}, function errorCallback(response) {
-			console.log('it did not work');
-			console.log(response.statusText);
-		});
-		*/
 	};
 
 	$scope.clearItems = function(){
 		$scope.list.items.length = 0;
+
+		$http.put('http://localhost:5000/api/shopping-lists', $scope.list)
+			.success(function (data, status, headers, config) {
+            })
+            .error(function (data, status, header, config) {
+            });
 	};
 
-
+	console.log($scope.list);
 }]);

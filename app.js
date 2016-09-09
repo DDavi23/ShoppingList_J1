@@ -7,7 +7,7 @@ var mongoUtil = require( './mongoUtil' );
 
 // MONGO DB //////////////////////////////////////////////////////////
 mongoUtil.connectToServer( function( err ) {
-  // start the rest of your app here
+	
 } );
 
 

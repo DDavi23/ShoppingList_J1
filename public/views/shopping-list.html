@@ -1,6 +1,25 @@
 <h2>{{list.name}}</h2>
 <div>
 	<ul>
-		<li ng-repeat="item in list.items">{{item.name}}</li>
+		<li ng-repeat="item in list.items">{{item.name}} - {{item.priority}} - {{item.note}}</li>
 	</ul>
+</div>
+<br>
+
+<div>
+<h3>Add New Item</h3>
+<form ng-submit="addItem()">
+	New Item: <input type="text" name="name" id="name" ng-model="newItem.name" required><br>
+	Priority: 
+		<select name="priority" id="priority" ng-model="newItem.priority" required>
+			<option value="High">High</option>
+			<option value="Medium">Medium</option>
+			<option value="Low">Low</option>
+		</select>
+<br>
+	Note: <input type="text" name="note" id="note" ng-model="newItem.note" value= " "><br>
+	<input type="submit" value="Submit">
+</form><br>
+
+<button ng-click="clearItems()" id="clear" > DESTROY YOUR LIST </button>
 </div>

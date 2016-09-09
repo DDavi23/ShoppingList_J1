@@ -112,5 +112,28 @@ app.controller('ShoppingListController', ['$scope', '$http', '$routeParams', fun
             });
 	};
 
-	console.log($scope.list);
+	$scope.checkItem = function(value){
+
+		var result = 0;
+		for (var i = 0; i < $scope.list.items.length; i++) {
+			if ($scope.list.items[i].id === value) {
+			result = i;
+			}
+		}
+
+		if($scope.list.items[result].isChecked === false){
+		$scope.list.items[result].isChecked = true;
+		} else if ($scope.list.items[result].isChecked === true){
+		$scope.list.items[result].isChecked = false;
+		}
+
+		$http.put('http://localhost:5000/api/shopping-lists', $scope.list)
+			.success(function (data, status, headers, config) {
+            })
+            .error(function (data, status, header, config) {
+            });
+            
+            console.log($scope.list.items);
+	};
+
 }]);

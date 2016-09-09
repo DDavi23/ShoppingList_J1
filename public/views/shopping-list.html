@@ -1,7 +1,7 @@
 <h2>{{list.name}}</h2>
 <div>
 	<ul>
-		<li ng-repeat="item in list.items">{{item.name}} - {{item.priority}} - {{item.note}}</li>
+		<li ng-repeat="item in list.items">{{item.name}} - {{item.priority}} - {{item.note}} <button ng-click = "checkItem(item.id)"></button></li> 
 	</ul>
 </div>
 <br>

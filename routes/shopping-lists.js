@@ -95,9 +95,17 @@ router.put('/', function (req, res){
 
 	// Assigns req.body(which should be the list object) to var list
 	var list = req.body;
-
 	// Queries collection by the list.id and updates the entire list with new object
-	shoppingLists.update({id:list.id}, {$set:list}, {w:1}, function(err, result) {
+	shoppingLists.replaceOne({id:list.id},
+	 {
+	 	id: list.id,
+	 	name: list.name,
+	 	color: list.color,
+	 	items: list.items,
+	 	created: list.created
+
+	 }, 
+	 {w:1}, function(err, result) {
 		res.send('You updated the shopping list: ' + list.name);
 	});
 

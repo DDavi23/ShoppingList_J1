@@ -5,8 +5,16 @@
 
 
 <!-- Link to CSS files -->	
+
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<!-- Tara's Custom CSS -->
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 
+
+<!-- Imported Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
 	</head>
 
 		<body>
@@ -19,7 +27,7 @@
 
 
 
-				<div class="main-card"
+				<div class="card">
 					<a ng-repeat="list in lists" ng-href="#/shopping-list/{{list.id}}">
 						<div>
 							<h5>{{list.name}}</h5>

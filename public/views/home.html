@@ -17,15 +17,58 @@
 <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
 	</head>
 
-		<body>
+<body>
+<!-- DUMMY LISTS -->
+<!-- This section has dummy data to test style without hooking it up to Angular.
+The section below it has angular intact. -->
+<div>
+
+				<div class="card">
+							
+					<h5>Target</h5>
+							<ul>
+								<li>tampons</li>
+								<li>nail clippers</li>
+								<li>Mucinex</li>
+								<li>Febreze</li>
+								<li>bra</li>
+							</ul>
+						
+				</div>
 
 
 
 
+				<div class="card">
+						<h5>Kroger</h5>
+							<ul>
+								<li>milk</li>
+								<li>cookies</li>
+								<li>wine</li>
+								<li>cereal</li>
+								<li>bread</li>
+							</ul>
+						
+				</div>
+
+
+				<div class="card">
+						<h5>Sam's Club</h5>
+							<ul>
+								<li>mayo</li>
+								<li>hot sauce</li>
+								<li>toilet paper</li>
+								<li>Febreze</li>
+								<li>bra</li>
+							</ul>
+				</div>
+
+				
+</div>
+
+<!-- ANGULAR LISTS -->
+<!-- I wanted to leave them in for now. -->
 			<div>
-
-
-
 
 				<div class="card">
 					<a ng-repeat="list in lists" ng-href="#/shopping-list/{{list.id}}">
@@ -39,9 +82,31 @@
 				</div>
 
 
+			<div>
 
+				<div class="card">
+					<a ng-repeat="list in lists" ng-href="#/shopping-list/{{list.id}}">
+						<div>
+							<h5>{{list.name}}</h5>
+							<ul>
+								<li ng-repeat="item in list.items">{{item.name}}</li>
+							</ul>
+						</div>
+					</a>
+				</div>
 
+			<div>
 
+				<div class="card">
+					<a ng-repeat="list in lists" ng-href="#/shopping-list/{{list.id}}">
+						<div>
+							<h5>{{list.name}}</h5>
+							<ul>
+								<li ng-repeat="item in list.items">{{item.name}}</li>
+							</ul>
+						</div>
+					</a>
+				</div>
 
 
 

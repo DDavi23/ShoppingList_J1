@@ -1,7 +1,7 @@
 
 body {
 	font-family: 'Rubik', sans-serif;
-	background-color: papayawhip;
+	background-color: #EBEBEB;
 
 }
 
@@ -11,7 +11,7 @@ body {
 
 .card {
 	background-color: cornflowerblue;
-	height: 500px;
+	height: 300px;
 	width:250px;
 	margin: 50px;
 	padding: 25px;

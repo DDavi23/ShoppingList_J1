@@ -56,6 +56,7 @@ app.controller('ShoppingListController', ['$scope', '$http', '$routeParams', fun
 	
 	$scope.list = [];
 	var id = $routeParams.id;
+	var orderedGroups = ['High', 'Medium', 'Low'];
 
 	function makeid()
 	{
@@ -135,5 +136,9 @@ app.controller('ShoppingListController', ['$scope', '$http', '$routeParams', fun
             
             console.log($scope.list.items);
 	};
+	$scope.sortBy = function(propertyName) {
+    $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+    $scope.propertyName = propertyName;
+};
 
 }]);

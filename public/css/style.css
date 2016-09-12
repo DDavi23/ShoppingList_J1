@@ -1,0 +1,59 @@
+
+body {
+	font-family: 'Rubik', sans-serif;
+	color:white;
+	background-color: #EBEBEB;
+
+}
+
+
+.card {
+	background-color: #F25757;
+	height: 500px;
+	width:450px;
+	width: 100%;
+	margin: 10px;
+	padding: 25px;
+	border-radius: 25px;
+	display: inline-block;
+
+}
+
+.cardAdd{
+	background-color: #7ADFBB;
+	color:white;
+	height: 500px;
+	width:450px;
+	width: 100%;
+	margin: 10px;
+	padding: 25px;
+	border-radius: 25px;
+	display: inline-block;
+	text-align: center;
+
+}
+
+.card h1, h2, h3, h4, h5 {
+	text-transform: uppercase;
+}
+
+.card ul {
+	padding: 25px;
+}
+
+.card li {
+	padding: 5px;
+	color: white;
+}
+
+
+.navbar {
+	background-color: #61E8E1;
+	border-style: none;
+
+}
+
+
+/*#trump {
+	display: inline-block;
+}*/

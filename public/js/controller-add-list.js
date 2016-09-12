@@ -4,7 +4,7 @@
     var app = angular.module('myApp');
 
 	// Add Lists Controller
-	app.controller('AddListController', ['$scope', '$http', '$location', function($scope, $http, $location){
+	app.controller('AddListController', ['$scope', '$http', '$location', 'API_BASE', function($scope, $http, $location, API_BASE){
 		
 		function makeid()
 		{
@@ -34,7 +34,7 @@
 				};
 				console.log(list);
 				
-				$http.post('http://localhost:5000/api/shopping-lists', list)
+				$http.post(API_BASE + 'shopping-lists', list)
 					.success(function (data, status, headers, config) {
 						console.log('you added a new list named ' + list.name);
 	            })

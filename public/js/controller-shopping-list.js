@@ -3,7 +3,7 @@
  
     var app = angular.module('myApp');
 
-	app.controller('ShoppingListController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
+	app.controller('ShoppingListController', ['$scope', '$http', '$routeParams', 'API_BASE', function($scope, $http, $routeParams, API_BASE){
 		
 		$scope.list = [];
 		var id = $routeParams.id;
@@ -25,7 +25,7 @@
 
 		$http({
 			method: 'GET',
-			url: 'http://localhost:5000/api/shopping-lists/' + id
+			url: API_BASE + 'shopping-lists/' + id
 		}).then(function successCallback(response) {
 			$scope.list = response.data[0];
 		}, function errorCallback(response) {
@@ -57,7 +57,7 @@
 		$scope.clearItems = function(){
 			$scope.list.items.length = 0;
 
-			$http.put('http://localhost:5000/api/shopping-lists', $scope.list)
+			$http.put(API_BASE + 'shopping-lists', $scope.list)
 				.success(function (data, status, headers, config) {
 	            })
 	            .error(function (data, status, header, config) {
@@ -79,7 +79,7 @@
 			$scope.list.items[result].isChecked = false;
 			}
 
-			$http.put('http://localhost:5000/api/shopping-lists', $scope.list)
+			$http.put(API_BASE + 'shopping-lists', $scope.list)
 				.success(function (data, status, headers, config) {
 	            })
 	            .error(function (data, status, header, config) {

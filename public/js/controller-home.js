@@ -3,13 +3,13 @@
  
     var app = angular.module('myApp');
 
-	app.controller('HomeController', ['$scope', '$http', function($scope, $http){
+	app.controller('HomeController', ['$scope', '$http', 'API_BASE', function($scope, $http, API_BASE){
 		
 		$scope.lists = [];
 
 		$http({
 	  		method: 'GET',
-	  		url: 'http://localhost:5000/api/shopping-lists'
+	  		url: API_BASE + 'shopping-lists'
 		}).then(function successCallback(response) {
 			console.log('it worked');
 			$scope.lists = response.data;

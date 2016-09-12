@@ -36,6 +36,7 @@
 			return text;
 		}
 
+
 		// ADD ITEM
 		$scope.addItem = function(){
 			var created = new Date();
@@ -57,6 +58,20 @@
 	            });
 		};
 
+
+		// REMOVE ITEM
+		$scope.removeItem = function(item){
+			var removedItem = $scope.list.items.indexOf(item);
+			$scope.list.items.splice(removedItem, 1);
+
+			$http.put(API_BASE + 'shopping-lists', $scope.list)
+				.success(function (data, status, headers, config) {
+	            })
+	            .error(function (data, status, header, config) {
+	            });
+		};
+
+
 		// CLEAR ITEMS
 		$scope.clearItems = function(){
 			$scope.list.items.length = 0;
@@ -67,31 +82,18 @@
 	            .error(function (data, status, header, config) {
 	            });
 		};
+		
 
 		// CHECK ITEM
-		$scope.checkItem = function(value){
-
-			var result = 0;
-			for (var i = 0; i < $scope.list.items.length; i++) {
-				if ($scope.list.items[i].id === value) {
-				result = i;
-				}
-			}
-
-			if($scope.list.items[result].isChecked === false){
-			$scope.list.items[result].isChecked = true;
-			} else if ($scope.list.items[result].isChecked === true){
-			$scope.list.items[result].isChecked = false;
-			}
+		$scope.checkItem = function(){
 
 			$http.put(API_BASE + 'shopping-lists', $scope.list)
 				.success(function (data, status, headers, config) {
 	            })
 	            .error(function (data, status, header, config) {
 	            });
-	            
-	            console.log($scope.list.items);
 		};
+
 
 		// SORT ITEMS
 		$scope.sortBy = function(propertyName) {

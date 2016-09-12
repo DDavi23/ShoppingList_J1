@@ -1,10 +1,27 @@
 <h2>{{list.name}}</h2>
+  <label> Search </label>
+  <input type="text" ng-model="search" placeholder="Search for an item" /><br>
+
+  <label>Order By</label>
+      <tr>
+      <th>
+        <button ng-click="sortBy('name')">Name</button>
+        <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
+      </th>
+      <th>
+        <button ng-click="sortBy('priority')">Priority</button>
+        <span class="sortorder" ng-show="propertyName === 'priority'" ng-class="{reverse: reverse}"></span>
+      </th>
+    </tr>
+     <hr/>
+
 <div>
 	<ul>
-		<li ng-repeat="item in list.items">{{item.name}} - {{item.priority}} - {{item.note}} <button ng-click = "checkItem(item.id)"></button></li> 
+		<li ng-repeat="item in list.items | orderBy:propertyName:reverse | filter: search ">{{item.name}} - {{item.priority}} - {{item.note}} <button ng-click = "checkItem(item.id)"></button></li> 
 	</ul>
 </div>
 <br>
+  <button ng-click="propertyName = null; reverse = false">Set to unsorted</button>
 
 <div>
 <h3>Add New Item</h3>
@@ -13,7 +30,6 @@
 	Priority: 
 		<select name="priority" id="priority" ng-model="newItem.priority" required>
 			<option value="High">High</option>
-			<option value="Medium">Medium</option>
 			<option value="Low">Low</option>
 		</select>
 <br>

@@ -1,13 +1,9 @@
-
-<!-- DUMMY LISTS -->
-<!-- This section has dummy data to test style without hooking it up to Angular.
-The section below it has Angular verbiage intact. -->
 <div>
 
 	<div class="row">
-			<a href="newlist.html">
-			<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2" id="trump">
-				<div class="cardAdd">
+			
+			<a class="col-xs-12 col-sm-6 col-md-4 col-lg-3" href="#/add-list">
+				<div class="card-add">
 							
 					<h1>CLICK TO ADD A NEW LIST</h1>
 
@@ -15,131 +11,23 @@ The section below it has Angular verbiage intact. -->
 					<span class="fa fa-plus fa-3x">   </span>
 						
 				</div>
-			</div>
+			
 			</a>
-			<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2" id="trump">
-				<div class="card">
+
+			<a class="col-xs-12 col-sm-6 col-md-4 col-lg-3" id="trump" ng-repeat="list in lists" ng-href="#/shopping-list/{{list.id}}">
+				
 							
-					<h5>Target</h5>
+						<div class="card">	
 							<ul>
-								<li>tampons</li>
-								<li>nail clippers</li>
-								<li>Mucinex</li>
-								<li>Febreze</li>
-								<li>bra</li>
+								<li ng-repeat="item in list.items">{{item.name}}</li>
 							</ul>
-						
-				</div>
-			</div>
+						</div>
 
-
-			<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2" id="trump">
-				<div class="card">
-						<h5>Kroger</h5>
-							<ul>
-								<li>milk</li>
-								<li>cookies</li>
-								<li>wine</li>
-								<li>cereal</li>
-								<li>bread</li>
-							</ul>
-						
-				</div>
-			</div>
-
-
-
-			<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2" id="trump">
-				<div class="card">
-						<h5>Sam's Club</h5>
-							<ul>
-								<li>mayo</li>
-								<li>hot sauce</li>
-								<li>toilet paper</li>
-								<li>Febreze</li>
-								<li>bra</li>
-							</ul>
-				</div>
-			</div>
-	
-			<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2" id="trump">
-				<div class="card">
-						<h5>Big Red</h5>
-							<ul>
-								<li>beer</li>
-								<li>beer</li>
-								<li>beer</li>
-								<li>beer</li>
-								<li>beer</li>
-								<li>beer</li>
-								<li>beer</li>
-								<li>beer</li>
-								<li>beer</li>
-
-							</ul>
-				</div>
-			</div>
-		
-
-
-			<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2" id="trump">
-					<div class="card">
-							<h5>Big Red</h5>
-								<ul>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-
-								</ul>
-					</div>
-			</div>
-
-
-			<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2" id="trump">
-					<div class="card">
-							<h5>Big Red</h5>
-								<ul>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-
-								</ul>
-					</div>
-			</div>
-
-
-			<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2" id="trump">
-					<div class="card">
-							<h5>Big Red</h5>
-								<ul>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-									<li>beer</li>
-
-								</ul>
-					</div>
-			</div>
-	</div>		
+			</a>
+		</div>
 
 </div>
+
 
 <!-- ANGULAR LISTS -->
 <!-- I wanted to leave them in for now. -->

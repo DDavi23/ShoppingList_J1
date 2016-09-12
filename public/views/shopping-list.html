@@ -17,7 +17,11 @@
 
 <div>
 	<ul>
-		<li ng-repeat="item in list.items | orderBy:propertyName:reverse | filter: search ">{{item.name}} - {{item.priority}} - {{item.note}} <button ng-click = "checkItem(item.id)"></button></li> 
+		<li ng-repeat="item in list.items | orderBy:propertyName:reverse | filter: search ">
+    <input type="checkbox" ng-model="item.isChecked" ng-click="checkItem()">
+    {{item.name}} - {{item.priority}} - {{item.note}} 
+      <button ng-click="removeItem(item)">X</button>
+    </li> 
 	</ul>
 </div>
 <br>

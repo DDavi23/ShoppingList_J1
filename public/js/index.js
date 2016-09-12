@@ -1,180 +1,28 @@
-var app = angular.module('myApp', ['ngRoute']);
+(function () {
 
-// ROUTING
-app.config(['$routeProvider', function($routeProvider){
+	var app = angular.module('myApp', ['ngRoute']);
 
-	$routeProvider
-		.when('/home', {
-			templateUrl: "views/home.html",
-			controller: "HomeController"
-		})
-		.when('/shopping-list/:id', {
-			templateUrl: "views/shopping-list.html",
-			controller: 'ShoppingListController'
-		})
-		.when('/add-list', {
-			templateUrl: "views/add-list.html",
-			controller: 'AddListController'
-		})
-		.otherwise({
-			redirectTo: '/home'
-		});
-}]);
+	// ROUTING
+	app.config(['$routeProvider', function($routeProvider){
 
-app.controller('HomeController', ['$scope', '$http', function($scope, $http){
-	
-	$scope.lists = [];
+		$routeProvider
+			.when('/home', {
+				templateUrl: "views/home.html",
+				controller: "HomeController"
+			})
+			.when('/shopping-list/:id', {
+				templateUrl: "views/shopping-list.html",
+				controller: 'ShoppingListController'
+			})
+			.when('/add-list', {
+				templateUrl: "views/add-list.html",
+				controller: 'AddListController'
+			})
+			.otherwise({
+				redirectTo: '/home'
+			});
+	}]);
 
-	$http({
-  		method: 'GET',
-  		url: 'http://localhost:5000/api/shopping-lists'
-	}).then(function successCallback(response) {
-		console.log('it worked');
-		$scope.lists = response.data;
-		console.log($scope.lists);
-  	}, function errorCallback(response) {
-  		console.log('it did not work');
-		console.log(response.statusText);
-  	});
+	app.constant('API_BASE', '//localhost:5000/api/');
 
-
-}]);
-
-// Add Lists Controller
-app.controller('AddListController', ['$scope', '$http', '$location', function($scope, $http, $location){
-	
-	function makeid()
-	{
-		var text = "";
-		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-		for( var i=0; i < 20; i++ ){
-			text += possible.charAt(Math.floor(Math.random() * possible.length));
-		}
-
-		text += Date.now();
-
-		return text;
-	}
-
-	$scope.addList = function(newList){
-			var list = {};
-			var created = new Date();
-			var newID = makeid();
-			
-			
-			list = {
-				id: newID,
-				name: newList.name,
-				color: newList.color,
-				created: created,
-			};
-			console.log(list);
-			
-			$http.post('http://localhost:5000/api/shopping-lists', list)
-				.success(function (data, status, headers, config) {
-					console.log('you added a new list named ' + list.name)
-            })
-            .error(function (data, status, header, config) {
-            });
-
-			$location.path('/home');
-	};
-
-
-}]);
-
-
-
-app.controller('ShoppingListController', ['$scope', '$http', '$routeParams', function($scope, $http, $routeParams){
-	
-	$scope.list = [];
-	var id = $routeParams.id;
-	var orderedGroups = ['High', 'Medium', 'Low'];
-
-	function makeid()
-	{
-		var text = "";
-		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-		for( var i=0; i < 20; i++ ){
-			text += possible.charAt(Math.floor(Math.random() * possible.length));
-		}
-
-		text += Date.now();
-
-		return text;
-	}
-
-	$http({
-		method: 'GET',
-		url: 'http://localhost:5000/api/shopping-lists/' + id
-	}).then(function successCallback(response) {
-		$scope.list = response.data[0];
-	}, function errorCallback(response) {
-		console.log('it did not work');
-		console.log(response.statusText);
-	});
-
-
-	$scope.addItem = function(){
-		var created = new Date();
-		var newID = makeid();
-		$scope.list.items.push({
-			name : $scope.newItem.name,
-			priority : $scope.newItem.priority,
-			note: $scope.newItem.note,
-			isChecked: false,
-			listId: $scope.list.id,
-			created: created,
-			id: newID
-		});
-		// console.log($scope.list.items);
-		$http.put('http://localhost:5000/api/shopping-lists', $scope.list)
-			.success(function (data, status, headers, config) {
-            })
-            .error(function (data, status, header, config) {
-            });
-	};
-
-	$scope.clearItems = function(){
-		$scope.list.items.length = 0;
-
-		$http.put('http://localhost:5000/api/shopping-lists', $scope.list)
-			.success(function (data, status, headers, config) {
-            })
-            .error(function (data, status, header, config) {
-            });
-	};
-
-	$scope.checkItem = function(value){
-
-		var result = 0;
-		for (var i = 0; i < $scope.list.items.length; i++) {
-			if ($scope.list.items[i].id === value) {
-			result = i;
-			}
-		}
-
-		if($scope.list.items[result].isChecked === false){
-		$scope.list.items[result].isChecked = true;
-		} else if ($scope.list.items[result].isChecked === true){
-		$scope.list.items[result].isChecked = false;
-		}
-
-		$http.put('http://localhost:5000/api/shopping-lists', $scope.list)
-			.success(function (data, status, headers, config) {
-            })
-            .error(function (data, status, header, config) {
-            });
-            
-            console.log($scope.list.items);
-	};
-	$scope.sortBy = function(propertyName) {
-    $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
-    $scope.propertyName = propertyName;
-};
-
-}]);
-
-
+})();

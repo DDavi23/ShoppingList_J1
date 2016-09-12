@@ -4,6 +4,10 @@
 		<title>Shopping List</title>
 
 
+<!-- SCRIPTS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <!-- Links to CSS files -->	
 
 <!-- Normalize CSS-->
@@ -20,6 +24,44 @@
 	</head>
 
 <body>
+
+<!-- NAVBAR -->
+ <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Shopping List</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+<!-- My Lists button -->
+          	  <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Lists<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Target</a></li>
+                <li><a href="#">Kroger</a></li>
+                <li><a href="#">Sam's Club</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">more...</li>
+                <li><a href="#">Add new list</a></li>
+              </ul>
+<!-- Sign-In button -->
+            <li><a href="#">Sign In</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
 <!-- DUMMY LISTS -->
 <!-- This section has dummy data to test style without hooking it up to Angular.
 The section below it has Angular verbiage intact. -->

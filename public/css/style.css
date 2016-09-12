@@ -6,9 +6,6 @@ body {
 }
 
 
-
-
-
 .card {
 	background-color: cornflowerblue;
 	height: 300px;
@@ -31,3 +28,11 @@ body {
 	padding: 5px;
 	color: white;
 }
+
+
+.navbar {
+	background-color: cornflowerblue;
+	border-style: none;
+	color: cyan;
+}
+

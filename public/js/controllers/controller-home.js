@@ -5,6 +5,7 @@
 
 	app.controller('HomeController', ['$scope', '$http', 'API_BASE', function($scope, $http, API_BASE){
 		
+		// GET ALL LISTS
 		$scope.lists = [];
 
 		$http({

@@ -5,10 +5,23 @@
 
 	app.controller('ShoppingListController', ['$scope', '$http', '$routeParams', 'API_BASE', function($scope, $http, $routeParams, API_BASE){
 		
+
+		// GET SPECIFIC LIST
 		$scope.list = [];
 		var id = $routeParams.id;
-		var orderedGroups = ['High', 'Medium', 'Low'];
+		
+		$http({
+			method: 'GET',
+			url: API_BASE + 'shopping-lists/' + id
+		}).then(function successCallback(response) {
+			$scope.list = response.data[0];
+		}, function errorCallback(response) {
+			console.log('it did not work');
+			console.log(response.statusText);
+		});
 
+
+		// RANDOM ID
 		function makeid()
 		{
 			var text = "";
@@ -23,17 +36,7 @@
 			return text;
 		}
 
-		$http({
-			method: 'GET',
-			url: API_BASE + 'shopping-lists/' + id
-		}).then(function successCallback(response) {
-			$scope.list = response.data[0];
-		}, function errorCallback(response) {
-			console.log('it did not work');
-			console.log(response.statusText);
-		});
-
-
+		// ADD ITEM
 		$scope.addItem = function(){
 			var created = new Date();
 			var newID = makeid();
@@ -54,6 +57,7 @@
 	            });
 		};
 
+		// CLEAR ITEMS
 		$scope.clearItems = function(){
 			$scope.list.items.length = 0;
 
@@ -64,6 +68,7 @@
 	            });
 		};
 
+		// CHECK ITEM
 		$scope.checkItem = function(value){
 
 			var result = 0;
@@ -87,6 +92,8 @@
 	            
 	            console.log($scope.list.items);
 		};
+
+		// SORT ITEMS
 		$scope.sortBy = function(propertyName) {
 	    $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
 	    $scope.propertyName = propertyName;

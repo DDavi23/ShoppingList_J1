@@ -6,6 +6,7 @@
 	// Add Lists Controller
 	app.controller('AddListController', ['$scope', '$http', '$location', 'API_BASE', function($scope, $http, $location, API_BASE){
 		
+		// RANDOM ID
 		function makeid()
 		{
 			var text = "";
@@ -20,6 +21,7 @@
 			return text;
 		}
 
+		// ADD NEW LIST
 		$scope.addList = function(newList){
 				var list = {};
 				var created = new Date();

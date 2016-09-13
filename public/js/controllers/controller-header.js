@@ -12,11 +12,8 @@
 	  		method: 'GET',
 	  		url: API_BASE + 'shopping-lists'
 		}).then(function successCallback(response) {
-			console.log('it worked');
 			$scope.lists = response.data;
-			console.log($scope.lists);
 	  	}, function errorCallback(response) {
-	  		console.log('it did not work');
 			console.log(response.statusText);
 	  	});
 

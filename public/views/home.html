@@ -4,26 +4,21 @@
 			
 			<a class="col-xs-12 col-sm-6 col-md-4 col-lg-3" href="#/add-list">
 				<div class="card-add">
-							
 					<h1>CLICK TO ADD A NEW LIST</h1>
-
 					<br>
-					<span class="fa fa-plus fa-3x">   </span>
-						
+					<span class="fa fa-plus fa-3x">   </span>	
 				</div>
-			
 			</a>
 
 			<a class="col-xs-12 col-sm-6 col-md-4 col-lg-3" id="trump" ng-repeat="list in lists" ng-href="#/shopping-list/{{list.id}}">
-				
-							
-						<div class="card">	
-							<ul>
-								<li ng-repeat="item in list.items">{{item.name}}</li>
-							</ul>
-						</div>
-
+				<div class="card">	
+					<h5>{{list.name}}</h5>
+					<ul>
+						<li ng-repeat="item in list.items">{{item.name}}</li>
+					</ul>
+				</div>
 			</a>
+			
 		</div>
 
 </div>

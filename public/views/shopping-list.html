@@ -30,16 +30,17 @@
 <div>
 <h3>Add New Item</h3>
 <form ng-submit="addItem()">
-	New Item: <input type="text" name="name" id="name" ng-model="newItem.name" required><br>
+	New Item: <input type="text" name="name" id="name" ng-model="newItem.name" placeholder="Item" required><br>
 	Priority: 
 		<select name="priority" id="priority" ng-model="newItem.priority" required>
 			<option value="High">High</option>
 			<option value="Low">Low</option>
 		</select>
 <br>
-	Note: <input type="text" name="note" id="note" ng-model="newItem.note" value= " "><br>
+	Note: <input type="text" name="note" id="note" ng-model="newItem.note" placeholder="Note" value= " "><br>
 	<input type="submit" value="Submit">
 </form><br>
 
 <button ng-click="clearItems()" id="clear" > DESTROY YOUR LIST </button>
 </div>
+

@@ -31,7 +31,7 @@
 				list = {
 					id: newID,
 					name: newList.name,
-					color: newList.color,
+					color: '#' + newList.color,
 					created: created,
 				};
 				console.log(list);

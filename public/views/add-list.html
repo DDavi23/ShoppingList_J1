@@ -5,9 +5,14 @@
 
 		<form ng-submit="addList(newList)">
 
-			<input type="text" class="input-box-text" placeholder="Add name" ng-model="newList.name" required>
-			<input type="text" class="input-box-text" placeholder="Color hex value" ng-model="newList.color" value="#" required>
+			<label>Name</label>
+			<input type="text" class="input-box-text" placeholder="Add name" ng-model="newList.name" required><br>
+			<label>Color</label>
+			<input type="text" minlength="6" maxlength="6" pattern="[A-Fa-f0-9]{6}" class="input-box-text" placeholder="Hex Value: 0-9, A-F" ng-model="newList.color" required>
 			<br>
+			<!-- <select ng-model="newList.color">
+				<option value="333333"><span></span></option>
+			</select> -->
 			<button type="submit" class="btn btn-lg">CREATE</button>
 
 		</form>

@@ -2,7 +2,7 @@
   "name": "shoppinglist",
   "version": "1.0.0",
   "description": "The most incredible shopping list app you have ever seen",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

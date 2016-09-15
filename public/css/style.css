@@ -18,6 +18,22 @@ a:hover {
 	text-decoration:none;
 }
 
+.navbar {
+	background-color: #353A47;
+	border-style: none;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: white;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	color: #CCC;
+}
 
 .card {
 	background-color: #EBEBEB;
@@ -73,13 +89,6 @@ a:hover {
 .card h3 {
 	padding: 0px;
 	margin: 10px;
-}
-
-
-.navbar {
-	background-color: #353A47;
-	border-style: none;
-
 }
 
 .input-box-text{

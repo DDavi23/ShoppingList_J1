@@ -23,6 +23,6 @@
 			});
 	}]);
 
-	app.constant('API_BASE', '//localhost:5000/api/' || 'https://ryan-shopping-list.herokuapp.com/api/');
+	app.constant('API_BASE', 'https://ryan-shopping-list.herokuapp.com/api/' || '//localhost:5000/api/');
 
 })();

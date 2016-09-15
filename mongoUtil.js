@@ -6,7 +6,7 @@ module.exports = {
 
   connectToServer: function( callback ) {
   	// connects to our database called shoppingLists
-    MongoClient.connect( "mongodb://localhost:27017/shoppingLists", function( err, db ) {
+    MongoClient.connect( 'mongodb://admin:admin@ds033066.mlab.com:33066/js1', function( err, db ) {
       // assigns return database to var _db
       _db = db;
       return callback( err );

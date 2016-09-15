@@ -1,4 +1,4 @@
-<div>
+<div class="container-fluid">
 
 	<div class="row">
 			
@@ -11,21 +11,12 @@
 			</a>
 
 			<a class="col-xs-12 col-sm-6 col-md-4 col-lg-3" ng-repeat="list in lists" ng-href="#/shopping-list/{{list.id}}">
-				<div class="card">	
-					<h5>{{list.name}}</h5>
-					<ul>
-						<li ng-repeat="item in list.items">{{item.name}}</li>
+				<div class="card" style="border-color: {{list.color}}">	
+					<h3 style="color:{{list.color}}">{{list.name}}</h3>
+					<ul class="list-group">
+						<li style="color:{{list.color}}" class="list-group-item" ng-repeat="item in list.items | limitTo:8">{{item.name}}</li>
 					</ul>
 				</div>
 			</a>
-
-			<a class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-				<div class="card">	
-					<h5>List</h5>
-					<ul>
-						<li>Thing on a list</li>
-						<li>#shouldbeasleepsorry</li>
-					</ul>
-				</div>
-
+	</div>
 </div>

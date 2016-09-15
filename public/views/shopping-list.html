@@ -1,80 +1,65 @@
-
 <div class="container">
   
 
-  <div class="shopping-list-card">
+    <div class="shopping-list-card row" style="border-color:{{list.color}}">
 
-    <div class="sidebar">
-      <span class="span9">
-        <span><h1>{{list.name}}</h1></span>
-          <div class="pull-right">
+        <div class="col-sm-8 sidebar" style="background-color:{{list.color}}">
+            <span><h1>{{list.name}}</h1></span>
+            <div class="pull-right">
               <span class="fa fa-trash fa-3x" class="pull-right" ng-click="clearList()">
               </span>
-              <span class="fa fa-eraser fa-3x" class="pull-right" ng-click="clearItems()"></span>
-              </span>
-              <span class="fa fa-plus fa-3x" class="pull-right" ng-click>
-              </span>           
-          </div>
-      </span>
+              <!-- <span class="fa fa-eraser fa-3x" class="pull-right" ng-click="clearItems()"></span> -->
+              <!-- <span class="fa fa-plus fa-3x" class="pull-right" ng-click>
+              </span> -->           
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+            <h4>Order By</h4>
+            <table>
+                <tr>
+                    <th>
+                        <button class="btn btn-default" ng-click="sortBy('name')">Name</button>
+                        <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
+                    </th>
+                    <th>
+                        <button class="btn btn-default" ng-click="sortBy('priority')">Priority</button>
+                        <span class="sortorder" ng-show="propertyName === 'priority'" ng-class="{reverse: reverse}"></span>
+                    </th>
+                </tr>
+            </table>
+
+            <ul class="list-group">
+                <li style="color:{{list.color}}" class="list-group-item" ng-repeat="item in list.items | orderBy:propertyName:reverse | filter: search ">
+                    <input type="checkbox" ng-model="item.isChecked" ng-click="checkItem()">
+                    {{item.name}} - {{item.priority}}
+                    <button class="btn btn-default" ng-click="removeItem(item)">X</button><br>
+                    <small class="form-text text-muted">Note: {{item.note}}</small>
+                </li> 
+            </ul>
+
+            <div class="add-item">
+                <h4>Add</h4>
+                <form ng-submit="addItem()">
+                    <input class="form-control" type="text" name="name" id="name" ng-model="newItem.name" placeholder="Item" maxlength="25" required>
+                    <select class="form-control" name="priority" id="priority" ng-model="newItem.priority" required>
+                        <option value="">Priority</option>
+                        <option value="High">High</option>
+                        <option value="Low">Low</option>
+                    </select>
+                    <input type="text" class="form-control" name="note" id="note" ng-model="newItem.note" placeholder="Note" maxlength="25" value= " ">
+                    <button class="btn btn-default" type="submit">Add</button>
+                </form><br>
+
+                <button class="btn btn-default" ng-click="clearItems()" id="clear" >Clear List</button>
+            </div>
+
+
+        </div>
     </div>
-
-
-    <div class="col-sm-8">
-        <ul class="list-group">
-          <li class="list-group-item" ng-repeat="item in list.items | orderBy:propertyName:reverse | filter: search ">
-              <input type="checkbox" ng-model="item.isChecked" ng-click="checkItem()">
-              {{item.name}} - {{item.priority}} - {{item.note}} 
-              <button ng-click="removeItem(item)">X</button>
-          </li> 
-        </ul>
-      </div>
-    </div>
 </div>
 
+<!-- <button ng-click="propertyName = null; reverse = false">Set to unsorted</button> -->
 
-<h2>{{list.name}}</h2>
-  <label> Search </label>
-  <input type="text" ng-model="search" placeholder="Search for an item" /><br>
 
-  <label>Order By</label>
-      <tr>
-      <th>
-        <button ng-click="sortBy('name')">Name</button>
-        <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
-      </th>
-      <th>
-        <button ng-click="sortBy('priority')">Priority</button>
-        <span class="sortorder" ng-show="propertyName === 'priority'" ng-class="{reverse: reverse}"></span>
-      </th>
-    </tr>
-     <hr/>
-
-<div>
-	<ul>
-		<li ng-repeat="item in list.items | orderBy:propertyName:reverse | filter: search ">
-    <input type="checkbox" ng-model="item.isChecked" ng-click="checkItem()">
-    {{item.name}} - {{item.priority}} - {{item.note}} 
-      <button ng-click="removeItem(item)">X</button>
-    </li> 
-	</ul>
-</div>
-<br>
-  <button ng-click="propertyName = null; reverse = false">Set to unsorted</button>
-
-<div>
-<h3>Add New Item</h3>
-<form ng-submit="addItem()">
-	New Item: <input type="text" name="name" id="name" ng-model="newItem.name" placeholder="Item" required><br>
-	Priority: 
-		<select name="priority" id="priority" ng-model="newItem.priority" required>
-			<option value="High">High</option>
-			<option value="Low">Low</option>
-		</select>
-<br>
-	Note: <input type="text" name="note" id="note" ng-model="newItem.note" placeholder="Note" value= " "><br>
-	<input type="submit" value="Submit">
-</form><br>
-
-<button ng-click="clearItems()" id="clear" > DESTROY YOUR LIST </button>
-</div>
 

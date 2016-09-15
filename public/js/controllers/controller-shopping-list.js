@@ -56,6 +56,13 @@
 	            })
 	            .error(function (data, status, header, config) {
 	            });
+
+	        // Reset input fields after submit
+	        $scope.newItem = {
+	        	name: "",
+	        	priority: "",
+	        	note: ""
+	        };    
 		};
 
 

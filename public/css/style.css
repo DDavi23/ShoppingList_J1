@@ -14,16 +14,20 @@ body {
     padding:0;
 }
 
+a:hover {
+	text-decoration:none;
+}
+
 
 .card {
 	background-color: #EBEBEB;
-	height: 500px;
-	width:450px;
+	height: 450px;
+	/*width:450px;*/
 	width: 100%;
 	margin: 10px;
-	padding: 25px;
-	border-radius: 25px;
-	border-width: 10px;
+	padding: 20px;
+	border-radius: 20px;
+	border-width: 5px;
 	border-style: solid; 
 	border-color: #F25757;
 
@@ -32,8 +36,8 @@ body {
 .card-add{
 	background-color: #7ADFBB;
 	color:white;
-	height: 500px;
-	width:450px;
+	height: 450px;
+	/*width:450px;*/
 	width: 100%;
 	margin: 10px;
 	padding: 25px;
@@ -57,12 +61,18 @@ body {
 }
 
 .card ul {
-	padding: 25px;
+	/*padding: 25px;*/
 }
 
 .card li {
-	padding: 5px;
-	color:#F25757;
+	/*padding: 5px;*/
+	background-color: #EBEBEB;
+	border: none;
+}
+
+.card h3 {
+	padding: 0px;
+	margin: 10px;
 }
 
 

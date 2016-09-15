@@ -31,6 +31,6 @@ app.get('/',function(req,res){
 
 
 // SERVER //////////////////////////////////////////////////////////
-app.listen(5000, function () {
+app.listen('https://ryan-shopping-list.herokuapp.com' || 5000, function () {
   console.log('app is listening in the upside down on port 5000');
 });

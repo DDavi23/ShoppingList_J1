@@ -6,7 +6,7 @@
         <div class="col-sm-8 sidebar" style="background-color:{{list.color}}">
             <span><h1>{{list.name}}</h1></span>
             <div class="pull-right">
-              <span class="fa fa-trash fa-3x" class="pull-right" ng-click="removeList(list)">
+              <span id="trash" class="fa fa-trash fa-3x" class="pull-right" ng-click="removeList(list)" alt="Delete List">
               </span>
               <!-- <span class="fa fa-eraser fa-3x" class="pull-right" ng-click="clearItems()"></span> -->
               <!-- <span class="fa fa-plus fa-3x" class="pull-right" ng-click>
@@ -15,6 +15,8 @@
         </div>
 
         <div class="col-sm-8">
+            <h4>Search</h4>
+            <input class="form-control" type="text" ng-model="search" placeholder="Search for an item" />
             <h4>Order By</h4>
             <table>
                 <tr>

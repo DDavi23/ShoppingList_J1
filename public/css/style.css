@@ -143,3 +143,7 @@ small {
 .add-item {
 	margin-bottom: 10px;
 }
+
+#trash {
+	cursor: pointer;
+}

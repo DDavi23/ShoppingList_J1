@@ -68,7 +68,7 @@
 				id: newID
 			});
 			// console.log($scope.list.items);
-			$http.put('http://localhost:5000/api/shopping-lists', $scope.list)
+			$http.put(API_BASE + 'shopping-lists/', $scope.list)
 				.success(function (data, status, headers, config) {
 	            })
 	            .error(function (data, status, header, config) {

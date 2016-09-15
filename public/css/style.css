@@ -5,7 +5,7 @@ html {
 
 body {
 	font-family: 'Rubik', sans-serif;
-	color:white;
+	/*color:white;*/
 	background-color: #EBEBEB;
 	height:100%;
     width:100%;
@@ -52,8 +52,6 @@ body {
 	padding:30px;
 	border-radius: 25px;
 	text-align: center;
-
-
 }
 
 .card h1, h2, h3, h4, h5 {
@@ -84,11 +82,10 @@ body {
 
 .shopping-list-card{
 	background-color: #EBEBEB;
-	height: 500px;
-	width:450px;
+	/*height: 500px;*/
 	width: 100%;
 	margin: 10px;
-	border-radius: 25px;
+	border-radius: 10px;
 	border-width: 10px;
 	border-style: solid; 
 	border-color: #F25757;
@@ -102,8 +99,11 @@ body {
 
 
 .sidebar {
-	padding: 10px;
+	width: 100%;
+	padding: 20px;
 	background-color: #F25757;
+	border-color: #F25757;;
+	color: white;
 }
 .sidebar h1{
 	display: inline;
@@ -117,4 +117,12 @@ body {
     overflow-y: scroll; 
     padding-top: 100px;
 	
+}
+
+small {
+	margin-left: 20px;
+}
+
+.add-item {
+	margin-bottom: 10px;
 }

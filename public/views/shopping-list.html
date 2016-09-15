@@ -1,3 +1,37 @@
+
+<div class="container">
+  
+
+  <div class="shopping-list-card">
+
+    <div class="sidebar">
+      <span class="span9">
+        <span><h1>{{list.name}}</h1></span>
+          <div class="pull-right">
+              <span class="fa fa-trash fa-3x" class="pull-right" ng-click="clearList()">
+              </span>
+              <span class="fa fa-eraser fa-3x" class="pull-right" ng-click="clearItems()"></span>
+              </span>
+              <span class="fa fa-plus fa-3x" class="pull-right" ng-click>
+              </span>           
+          </div>
+      </span>
+    </div>
+
+
+    <div class="col-sm-8">
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="item in list.items | orderBy:propertyName:reverse | filter: search ">
+              <input type="checkbox" ng-model="item.isChecked" ng-click="checkItem()">
+              {{item.name}} - {{item.priority}} - {{item.note}} 
+              <button ng-click="removeItem(item)">X</button>
+          </li> 
+        </ul>
+      </div>
+    </div>
+</div>
+
+
 <h2>{{list.name}}</h2>
   <label> Search </label>
   <input type="text" ng-model="search" placeholder="Search for an item" /><br>

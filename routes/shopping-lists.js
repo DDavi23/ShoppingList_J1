@@ -66,19 +66,19 @@ router.post('/', function (req, res){
 
 // DELETE SINGLE LIST
 
-router.delete('/', function (req, res){
+router.delete('/:id', function (req, res){
 	
 	// MONGO DB SETUP
 	var db = mongoUtil.getDb();
 	db.createCollection('shoppingLists', function(err, collection) {});
 	var shoppingLists = db.collection('shoppingLists');
 
-	// Assigns req.body(which should be the list object) to var list
-	var list = req.body;
+	// Assigns req.params.id(which should be the list id) to var listId
+	var listId = req.params.id;
 
-	// Queries collection by list.id and removes it.
-	shoppingLists.remove({id:list.id}, {w:1}, function(err, result) {
-		res.send('You deleted a list: ' + list.name);
+	// Queries collection by listId and removes it.
+	shoppingLists.remove({id:listId}, {w:1}, function(err, result) {
+		res.send('You deleted a list: ' + req.params);
 	});
 
 });

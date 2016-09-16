@@ -33,17 +33,13 @@
 
             <ul class="list-group">
                 <li style="color:{{list.color}}" class="list-group-item" ng-repeat="item in list.items | orderBy:propertyName:reverse | filter: search ">
-                    <input type="checkbox" ng-model="item.isChecked" ng-click="editItem()">
+                    <input type="checkbox" ng-model="item.isChecked" ng-click="checkItem()">
                     {{item.name}} - {{item.priority}}
                     <button class="btn btn-default" ng-click="removeItem(item)">X</button><br>
                     <small class="form-text text-muted">Note: {{item.note}}</small>
 
-
-
-
-
-                        <button href ng-click="editItem = !editItem">Edit Item</button>
-                        <div ng-show = "!editItem"> 
+                        <button href ng-click="showEdit = !showEdit" ng-show="!showEdit">Edit Item</button>
+                        <div ng-show = "showEdit"> 
                             <h4>Edit {{item.name}}</h4>
                             <form ng-submit="editItem()">
                                 <input class="form-control" type="text" name="name" id="name" ng-model="item.name" maxlength="25" required>
@@ -53,18 +49,16 @@
                                     <option value="Low">Low</option>
                                 </select>
                                 <input type="text" class="form-control" name="note" id="note" ng-model="item.note" maxlength="255" value= " ">
-                                <button class="btn btn-default" type="submit">Edit Item</button>
+                                <button class="btn btn-default" type="submit" ng-click="showEdit = !showEdit">Edit Item</button>
                             </form><br>
                         </div>
-
-
-
 
                 </li> 
             </ul>
 
-            <div class="add-item">
-                <h4>Add</h4>
+            <button href ng-click="showAddItem = !showAddItem" ng-show="!showAddItem">Add Item</button>
+            <div ng-show="showAddItem" class="add-item">
+                <h4>Add Item</h4>
                 <form ng-submit="addItem()">
                     <input class="form-control" type="text" name="name" id="name" ng-model="newItem.name" placeholder="Item" maxlength="25" required>
                     <select class="form-control" name="priority" id="priority" ng-model="newItem.priority" required>
@@ -73,13 +67,12 @@
                         <option value="Low">Low</option>
                     </select>
                     <input type="text" class="form-control" name="note" id="note" ng-model="newItem.note" placeholder="Note" maxlength="255" value= " ">
-                    <button class="btn btn-default" type="submit">Add</button>
-                </form><br>
-
-                <button class="btn btn-default" ng-click="clearItems()" id="clear" >Clear List</button>
-                <button class="btn btn-default" ng-click="clearCheckedItems()" id="clear" >Clear Checked Items</button>
+                    <button class="btn btn-default" type="submit" ng-click="showAddItem = !showAddItem">Add</button>
+                </form>
             </div>
-
+            <br><br>
+            <button class="btn btn-default" ng-click="clearItems()" id="clear" >Clear List</button>
+            <button class="btn btn-default" ng-click="clearCheckedItems()" id="clear" >Clear Checked Items</button>
 
         </div>
     </div>

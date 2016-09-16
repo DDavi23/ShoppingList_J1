@@ -33,10 +33,33 @@
 
             <ul class="list-group">
                 <li style="color:{{list.color}}" class="list-group-item" ng-repeat="item in list.items | orderBy:propertyName:reverse | filter: search ">
-                    <input type="checkbox" ng-model="item.isChecked" ng-click="checkItem()">
+                    <input type="checkbox" ng-model="item.isChecked" ng-click="editItem()">
                     {{item.name}} - {{item.priority}}
                     <button class="btn btn-default" ng-click="removeItem(item)">X</button><br>
                     <small class="form-text text-muted">Note: {{item.note}}</small>
+
+
+
+
+
+                        <button href ng-click="editItem = !editItem">Edit Item</button>
+                        <div ng-show = "!editItem"> 
+                            <h4>Edit {{item.name}}</h4>
+                            <form ng-submit="editItem()">
+                                <input class="form-control" type="text" name="name" id="name" ng-model="item.name" maxlength="25" required>
+                                <select class="form-control" name="priority" id="priority" ng-model="item.priority" required>
+                                    <option value="">Priority</option>
+                                    <option value="High">High</option>
+                                    <option value="Low">Low</option>
+                                </select>
+                                <input type="text" class="form-control" name="note" id="note" ng-model="item.note" maxlength="255" value= " ">
+                                <button class="btn btn-default" type="submit">Edit Item</button>
+                            </form><br>
+                        </div>
+
+
+
+
                 </li> 
             </ul>
 

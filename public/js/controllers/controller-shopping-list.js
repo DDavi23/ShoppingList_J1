@@ -124,10 +124,11 @@
 	            .error(function (data, status, header, config) {
 	            });
 		};
-		
+		$scope.showEditForm = function(){
 
-		// CHECK ITEM
-		$scope.checkItem = function(){
+		};
+
+		$scope.editItem = function(){
 
 			$http.put(API_BASE + 'shopping-lists', $scope.list)
 				.success(function (data, status, headers, config) {
@@ -135,7 +136,7 @@
 	            .error(function (data, status, header, config) {
 	            });
 		};
-
+		
 
 		// SORT ITEMS
 		$scope.sortBy = function(propertyName) {

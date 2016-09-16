@@ -124,10 +124,8 @@
 	            .error(function (data, status, header, config) {
 	            });
 		};
-		$scope.showEditForm = function(){
 
-		};
-
+		//Edit Items / Checked Items
 		$scope.editItem = function(){
 
 			$http.put(API_BASE + 'shopping-lists', $scope.list)
@@ -137,7 +135,6 @@
 	            });
 		};
 		
-
 		// SORT ITEMS
 		$scope.sortBy = function(propertyName) {
 	    $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;

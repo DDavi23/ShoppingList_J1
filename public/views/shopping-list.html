@@ -33,7 +33,7 @@
 
             <ul class="list-group">
                 <li style="color:{{list.color}}" class="list-group-item" ng-repeat="item in list.items | orderBy:propertyName:reverse | filter: search ">
-                    <input type="checkbox" ng-model="item.isChecked" ng-click="checkItem()">
+                    <input type="checkbox" ng-model="item.isChecked" ng-click="editItem()">
                     {{item.name}} - {{item.priority}}
                     <button class="btn btn-default" ng-click="removeItem(item)">X</button><br>
                     <small class="form-text text-muted">Note: {{item.note}}</small>

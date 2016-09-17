@@ -35,9 +35,9 @@
                 <li style="color:{{list.color}}" class="list-group-item" ng-repeat="item in list.items | orderBy:propertyName:reverse | filter: search ">
                     <input type="checkbox" ng-model="item.isChecked" ng-click="editItem()">
                     {{item.name}} - {{item.priority}}
-                    <button class="btn btn-default" ng-click="removeItem(item)">X</button>
+                    <i class="fa fa-trash-o" aria-hidden="true" ng-click="removeItem(item)"></i>&nbsp
                     
-                    <button class="btn btn-default" href ng-click="showEdit = !showEdit" ng-show="!showEdit">Edit Item</button>
+                    <i class="fa fa-pencil" aria-hidden="true" href ng-click="showEdit = !showEdit" ng-show="!showEdit"></i>
                     <div ng-show = "showEdit"> 
                         <h4>Edit {{item.name}}</h4>
                         <form ng-submit="editItem()">
@@ -57,7 +57,7 @@
                 </li> 
             </ul>
 
-            <button class="btn btn-default" href ng-click="showAddItem = !showAddItem" ng-show="!showAddItem">Add Item</button>
+            <button class="btn btn-default btn-custom" href ng-click="showAddItem = !showAddItem" ng-show="!showAddItem">Add Item</button><br>
             <div ng-show="showAddItem" class="add-item">
                 <h4>Add Item</h4>
                 <form ng-submit="addItem()">
@@ -68,7 +68,7 @@
                         <option value="Low">Low</option>
                     </select>
                     <input type="text" class="form-control" name="note" id="note" ng-model="newItem.note" placeholder="Note" maxlength="255" value= " ">
-                    <button class="btn btn-default" type="submit" ng-click="showAddItem = !showAddItem">Add</button>    
+                    <button class="btn btn-default" type="submit" ng-click="showAddItem = !showAddItem">Add</button>&nbsp<span class="close-box" ng-click="showAddItem = !showAddItem"><u>close</u></span>    
                 </form>
             </div>
             <br>

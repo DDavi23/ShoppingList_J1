@@ -147,3 +147,16 @@ small {
 #trash {
 	cursor: pointer;
 }
+
+i {
+	cursor: pointer;	
+}
+
+.btn-custom {
+	background-color: #353A47;
+	color: white;
+}
+
+.close-box {
+	cursor: pointer;
+}

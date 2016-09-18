@@ -3,21 +3,38 @@
 
     <div class="shopping-list-card row" style="border-color:{{list.color}}">
 
-        <div class="col-sm-8 sidebar" style="background-color:{{list.color}}">
+        <div class="col-sm-8 list-head" style="background-color:{{list.color}}">
             <span><h1>{{list.name}}</h1></span>
             <div class="pull-right">
-              <span id="trash" class="fa fa-trash fa-3x" class="pull-right" ng-click="removeList(list)" alt="Delete List">
-              </span>
-              <!-- <span class="fa fa-eraser fa-3x" class="pull-right" ng-click="clearItems()"></span> -->
-              <!-- <span class="fa fa-plus fa-3x" class="pull-right" ng-click>
-              </span> -->           
-            </div>
-        </div>
+   
+                <div class="form-group">
+                    <div class="icon-addon addon-md">
+                        <input type="text" placeholder="search items" class="form-control" id="search-text" ng-model="search">
+                        <label for="search-text" class="glyphicon glyphicon-search" rel="tooltip" title="email"></label>
+                    </div>
+                </div>
+                     <span id="trash" class="fa fa-trash fa-3x" class="pull-right" ng-click="removeList(list)" alt="Delete List">delete list</span>
 
-        <div class="col-sm-8">
-            <h4>Search</h4>
-            <input class="form-control" type="text" ng-model="search" placeholder="Search for an item" />
-            <h4>Order By</h4>
+                                 <table>
+                <tr>
+                    <th>
+                        <button class="btn btn-default" ng-click="sortBy('name')">Name</button>
+                        <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
+                    </th>
+                    <th>
+                        <button class="btn btn-default" ng-click="sortBy('priority')">Priority</button>
+                        <span class="sortorder" ng-show="propertyName === 'priority'" ng-class="{reverse: reverse}"></span>
+                    </th>
+                </tr>
+            </table>
+            </div>
+        </div>      
+
+
+
+
+  <h4>Order By</h4>
+
             <table>
                 <tr>
                     <th>

@@ -108,6 +108,8 @@ a:hover {
 	border-color: #F25757;
 }
 
+
+
 .shopping-list-card li{
 	color: #F25757;
 	background-color: #EBEBEB;
@@ -126,8 +128,10 @@ a:hover {
 	display: inline;
 }
 
+
 .list-group{
 	font-size: 16px;
+	margin-left: 50px
 }
 .list-group-control{
 	max-height: 100%;
@@ -261,13 +265,39 @@ i {
 .btn-custom {
 	background-color: #353A47;
 	color: white;
+	margin-left: 100px;
 }
 
 .close-box {
 	cursor: pointer;
 }
+/*New OrderBy table*/
+.order-by-table{
 
-/*Icon for search bar*/
+	margin: 40px;
+	padding: 30px;
+}
+
+
+.btn-order-by-name {
+	background-color: #353A47;
+	color: white;
+	font-size: 14px;
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	margin-right: -2px;
+	margin-left: 10px;
+	border-style: none;
+}
+.btn-order-by-priority{
+background-color:#7ADFBB;
+	color: white;
+	font-size: 14px;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	border-style: none;
+	}
+	/*Icon for search bar*/
 .input-group .icon-addon .form-control {
     border-radius: 0;
 }

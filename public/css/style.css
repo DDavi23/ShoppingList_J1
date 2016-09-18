@@ -13,6 +13,7 @@ body {
     margin:0;
     padding:0;
 }
+.table { border-collapse:collapse }
 
 a:hover {
 	text-decoration:none;
@@ -123,7 +124,18 @@ a:hover {
 	background-color: #F25757;
 	border-color: #F25757;;
 	color: white;
+
+
 }
+/*.list-head row {
+	width: 100%;
+	background-color: #F25757;
+	border-color: #F25757;;
+	color: white;
+	margin:5px;
+
+
+}*/
 .list-head h1{
 	display: inline;
 }
@@ -378,3 +390,10 @@ background-color:#7ADFBB;
 }
 
 /*End of Icon for Search Bar*/
+.custom-data{
+    height: 50px;
+    vertical-align: baseline;
+} 
+.custom-data p{
+	vertical-align: baseline;
+}

@@ -279,6 +279,11 @@ i {
 	color: white;
 	margin-left: 100px;
 }
+.btn-home {
+	background-color: #E26A6A;
+	color: white;
+	margin-left: 75px;
+}
 
 .close-box {
 	cursor: pointer;
@@ -302,7 +307,7 @@ i {
 	border-style: none;
 }
 .btn-order-by-priority{
-background-color:#7ADFBB;
+background-color:#E26A6A;
 	color: white;
 	font-size: 14px;
 	border-top-right-radius: 6px;
@@ -390,10 +395,4 @@ background-color:#7ADFBB;
 }
 
 /*End of Icon for Search Bar*/
-.custom-data{
-    height: 50px;
-    vertical-align: baseline;
-} 
-.custom-data p{
-	vertical-align: baseline;
-}
+

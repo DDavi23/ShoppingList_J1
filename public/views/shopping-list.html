@@ -1,34 +1,67 @@
 <div class="container">
   
 
-    <div class="shopping-list-card row" style="border-color:{{list.color}}">
+    <div class="shopping-list-card" style="border-color:{{list.color}}">
+            <div class="col-sm-8 list-head" style="background-color:{{list.color}}">
+                <span><h1>{{list.name}}</h1></span>
+                 
 
-        <div class="col-sm-8 list-head" style="background-color:{{list.color}}">
-            <span><h1>{{list.name}}</h1></span>
-                     <div class="pull-right" >
-                         <span id="trash" class="fa fa-trash fa-3x" class="col-sm-2" ng-click="removeList(list)" alt="Delete List"></span>
+                <div class="pull-right" >
+                <table>
+                <thead>
 
-                         <div class="form-group">
-                    <div class="icon-addon addon-md">
-                        <input type="text" placeholder="search items" class="form-control" id="search-text" ng-model="search">
-                        <label for="search-text" class="glyphicon glyphicon-search" rel="tooltip" title="email"></label>
+                    <tr> 
+                        <td>
+                        <div class="form-group">
+                        <div class="icon-addon addon-md">
+                            <input type="text" placeholder="search items" class="form-control" id="search-text" ng-model="search">
+                            <label for="search-text" class="glyphicon glyphicon-search" rel="tooltip" title="email"></label>
+                        </div>
+                        </td>
+                        <td></td>
+                             <td>
+
+                             <i id="trash" class="fa fa-trash fa-3x"  ng-click="removeList(list)" alt="Delete List"></i>
+                             </td>
+                        </div>
+
+                    </tr>
+                    </thead>
+
+         <!--            <tr>
+                        <th>clear checked items</th> 
+                        
+                        <th>delete list</th>
+                    </tr>
+ -->
+                    <tr>
+                        <td class="custom-data">
+                            <p>clear checked items</p>
+                        <i class="fa fa-times-circle-o fa-2x" ng-click="clearCheckedItems()" id="clear" alt="Clear Checked Items"></i>
+                         </td> 
+                        <td class="custom-data"><p>clear all items</p><i class="fa fa-times-circle fa-2x" ng-click="clearItems()" id="clear" alt="Clear Checked Items"></i>
+                         </td>  
+                          
+<!-- 
+                             <i id="trash" class="fa fa-trash fa-3x" ng-click="removeList(list)" alt="Delete List"></i>
+                             </td> -->
+                    </tr>
+                        </div>
                     </div>
-                </div>
-                   </div>
-                
+                </table>
 
-    </div>      
+                </div>      
 
-
+    </div>
 
             <table class="order-by-table">
                 <tr><th><h5>order items by:</h5></th>
                     <th>
-                        <button class="btn-order-by-name" ng-click="sortBy('name')">Name</button>
+                        <button class="btn-order-by-name" ng-click="sortBy('name')"><i class="fa fa-sort" aria-hidden="true"></i>Name</button>
                         <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
                     </th>
                     <th>
-                        <button class="btn-order-by-priority" ng-click="sortBy('priority')">Priority</button>
+                        <button class="btn-order-by-priority" ng-click="sortBy('priority')"><i class="fa fa-sort" aria-hidden="true"></i>Priority</button>
                         <span class="sortorder" ng-show="propertyName === 'priority'" ng-class="{reverse: reverse}"></span>
                     </th>
                 </tr>
@@ -73,7 +106,9 @@
                     <input type="text" class="form-control" name="note" id="note" ng-model="newItem.note" placeholder="Note" maxlength="255" value= " ">
                     <button class="btn btn-default" type="submit" ng-click="showAddItem = !showAddItem">Add</button>&nbsp<span class="close-box" ng-click="showAddItem = !showAddItem"><u>close</u></span>    
                 </form>
-            </div>
+                 <button class="btn btn-default btn-lg btn-custom" href="">Add Item</button>
+            </div><br><br>
+            <button class="btn btn-default btn-lg btn-home" href="home.html">Save & Return</button>
             <br>
        <!--      <button class="btn btn-default" ng-click="clearItems()" id="clear" >Clear List</button>
             <button class="btn btn-default" ng-click="clearCheckedItems()" id="clear" >Clear Checked Items</button> -->

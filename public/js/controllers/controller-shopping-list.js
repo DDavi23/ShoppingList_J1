@@ -110,14 +110,11 @@
 
 		// CLEAR CHECKED ITEMS
 		$scope.clearCheckedItems = function(){
+			var length = $scope.list.items.length-1;
 
-			var length = $scope.list.items.length;
-
-			for (var i = length -1; i > -1; i--) {
-				console.log('Item length is ' + length);
+			for (var i = length; i > -1; i--) {
 				if ($scope.list.items[i].isChecked === true) {
-					var removedItem = $scope.list.items[i];	
-					$scope.list.items.splice(removedItem, 1);
+						$scope.list.items.splice(i,1);
 				}
 			}
 
@@ -127,10 +124,9 @@
 	            .error(function (data, status, header, config) {
 	            });
 		};
-		
 
-		// CHECK ITEM
-		$scope.checkItem = function(){
+		//Edit Items / Checked Items
+		$scope.editItem = function(){
 
 			$http.put(API_BASE + 'shopping-lists', $scope.list)
 				.success(function (data, status, headers, config) {
@@ -138,8 +134,7 @@
 	            .error(function (data, status, header, config) {
 	            });
 		};
-
-
+		
 		// SORT ITEMS
 		$scope.sortBy = function(propertyName) {
 	    $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;

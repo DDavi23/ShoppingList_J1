@@ -19,6 +19,10 @@ a:hover {
 	text-decoration:none;
 }
 
+.strike{
+ text-decoration: line-through;
+}
+
 .navbar {
 	background-color: #353A47;
 	border-style: none;

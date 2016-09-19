@@ -50,7 +50,7 @@
             </table>
 
             <ul class="list-group">
-                <li style="color:{{list.color}}" class="list-group-item" ng-repeat="item in list.items | orderBy:propertyName:reverse | filter: search ">
+                <li style="color:{{list.color}}" class="list-group-item" ng-repeat="item in list.items | orderBy:propertyName:reverse | filter: search " ng-class="{strike: item.isChecked}">
                     <input type="checkbox" ng-model="item.isChecked" ng-click="editItem()">
                     {{item.name}} - {{item.priority}}
                     <i class="fa fa-trash-o" aria-hidden="true" ng-click="removeItem(item)"></i>&nbsp

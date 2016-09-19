@@ -55,7 +55,8 @@
                     {{item.name}} - {{item.priority}}
                     <i class="fa fa-trash-o" aria-hidden="true" ng-click="removeItem(item)"></i>&nbsp
                     
-                    <i class="fa fa-pencil" aria-hidden="true" href ng-click="showEdit = !showEdit" ng-show="!showEdit"></i>
+                    <i class="fa fa-pencil" aria-hidden="true" href ng-click="showEdit = !showEdit" ng-show="!showEdit"></i><br>
+                    <small class="form-text text-muted">Note: {{item.note}}</small>
                     <div ng-show = "showEdit"> 
                         <h4>Edit {{item.name}}</h4>
                         <form ng-submit="editItem()">
@@ -67,10 +68,9 @@
                             </select>
                             <input type="text" class="form-control" name="note" id="note" ng-model="item.note" maxlength="255" value= " ">
                             <button class="btn btn-default" type="submit" ng-click="showEdit = !showEdit">Update</button>
-                        </form><br>
+                        </form>
                     </div>
                     <br>
-                    <small class="form-text text-muted">Note: {{item.note}}</small>
 
                 </li> 
             </ul>
